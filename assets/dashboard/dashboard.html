@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-offset-3 col-md-4">
+        <span>            
+            <input type="text" class="form-control" id="seaarchKeyword" ng-model="keyword" placeholder="Search Keywords">
+            <button class="btn btn-primary" ng-click="getData()">Check Competition</button>
+        </span>        
+    </div>
+    <div class="col-md-5">
+        <a class="btn btn-default" href="#/account" role="button">Account</a>
+        <a class="btn btn-default" href="#/logout" role="button"  ng-click="logout()">Logout</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-8">
+                <table class="table table-bordered " style="border: 0 solid" ng-if="links.length > 0">
+                    <thead>
+                        <tr>
+                            <th>N</th>
+                            <th>URL</th>
+                            <th>PA</th>
+                            <th>DA</th>
+                        </tr>
+                    </thead>
+                    <tbody infinite-scroll="fetch()"
+                           infinite-scroll-distance="3"
+                           infinite-scroll-immediate-check="false"
+                           infinite-scroll-disabled="fetching">
+                        <tr ng-repeat="link in links">
+                            <td>{{$index + 1}}</td>
+                            <td>{{link.uu}}</td>
+                            <td>{{link.upa}}</td>
+                            <td>{{link.pda}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-2">&nbsp;</div>
+        </div>
+    </div>
+    <div class="col-md-2">&nbsp;</div>
+</div>
